@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
+
+class ViewModelFactory: ObservableObject {
+    let feedController = FeedController()
+    
+    func makeFeedViewModel() -> RSSFeedViewModel {
+        return RSSFeedViewModel(feedController: feedController)
+    }
+    
+    func makeFavouritesViewModel() -> FavouritesFeedViewModel {
+        return FavouritesFeedViewModel(feedController: feedController)
+    }
+}
