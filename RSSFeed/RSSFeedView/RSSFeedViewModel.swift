@@ -25,6 +25,8 @@ class RSSFeedViewModel: ObservableObject {
         feedProviders = feedController.feedProviders.value
         errorMessage = feedController.errorMessage.value
         showAlert = feedController.showAlert.value
+        
+        setSink()
     }
 }
 
