@@ -11,12 +11,19 @@ struct RSSFeedView: View {
     @ObservedObject var viewModel: RSSFeedViewModel
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List($viewModel.feedProviders, id: \.self) { $item in
+            ForEach($viewModel.feedProviders) { $provider in
+                NavigationLink {
+                    RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
+                } label: {
+                    RSSListRowView(title: item.title ?? "-",
+                                   description: item.description ?? "-",
+                                   imageUrl: item.imageUrl ?? "-")
+                }
+            }
         }
-        .padding()
+        .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
