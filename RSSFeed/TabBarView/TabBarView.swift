@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct TabBarView: View {
+    private let viewModelFactory = ViewModelFactory()
+
     var body: some View {
         TabView {
-            RSSFeedView(viewModel: RSSFeedViewModel())
+            RSSFeedView(viewModel: viewModelFactory.makeFeedViewModel())
                 .tabItem {
                     Label("Feed", systemImage: "list.dash")
                 }
             
-            FavouritesFeedView(viewModel: FavouritesFeedViewModel())
+            FavouritesFeedView(viewModel: viewModelFactory.makeFavouritesViewModel())
                 .tabItem {
                     Label("Favourites", systemImage: "star")
                 }
