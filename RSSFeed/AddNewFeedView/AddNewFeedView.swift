@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct AddNewFeedView: View {
+    @FocusState private var emailFieldIsFocused: Bool
+    @Binding var rssFeedUrl: String
+    var doneButtonTapped: ((String?) -> Void)
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack(spacing: 10) {
+                HStack(spacing: 20) {
+                    Text("Add new feed")
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        if !rssFeedUrl.isEmpty {
+                            doneButtonTapped(rssFeedUrl)
+                        } else {
+                            doneButtonTapped(nil)
+                        }
+                    }) {
+                        Text("Done")
+                            .foregroundStyle(.white)
+                    }
+                }
+                .padding(20)
+                
+                TextField("Enter provider URL", text: $rssFeedUrl)
+                    .padding(10)
+                    .focused($emailFieldIsFocused)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .border(.cyan)
+                    .clipShape(.capsule)
+                    .padding(20)
+                
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-}
-
-#Preview {
-    AddNewFeedView()
 }
