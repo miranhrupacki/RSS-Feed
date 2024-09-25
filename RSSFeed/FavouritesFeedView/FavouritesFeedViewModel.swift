@@ -6,15 +6,31 @@
 //
 
 import Foundation
+import Combine
 
 class FavouritesFeedViewModel: ObservableObject {
     @Published var favouriteFeedProviders: [RSSFeedReponse]
-    
     var feedController: FeedController
+    private var cancellables = Set<AnyCancellable>()
 
     init(feedController: FeedController) {
+        favouriteFeedProviders = feedController.feedProviders.value
         self.feedController = feedController
         
-        favouriteFeedProviders = feedController.feedProviders.value
+        feedController.feedProviders.sink { [weak self] in
+            self?.favouriteFeedProviders = $0.filter { $0.isFavourite == true }
+        }
+        .store(in: &cancellables)
+    }
+}
+
+// MARK: - Update current data
+extension FavouritesFeedViewModel {
+   func delete(at offsets: IndexSet) {
+       feedController.delete(at: offsets)
+   }
+
+    func addOrUpdateFeed(_ feed: RSSFeedReponse) {
+        feedController.addOrUpdateFeed(feed)
     }
 }
