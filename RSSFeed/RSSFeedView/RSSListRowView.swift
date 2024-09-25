@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 struct RSSListRowView: View {
     var title: String
@@ -23,7 +24,10 @@ struct RSSListRowView: View {
             .buttonStyle(PlainButtonStyle())
             
             GeometryReader { geometry in
-                Image(imageUrl)
+                KFImage(URL(string: imageUrl))
+                    .placeholder {
+                        ProgressView()
+                    }
                     .resizable()
                     .scaledToFit()
                     .clipped()
