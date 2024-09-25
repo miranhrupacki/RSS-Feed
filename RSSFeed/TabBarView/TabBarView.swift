@@ -10,12 +10,12 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            RSSFeedView()
+            RSSFeedView(viewModel: RSSFeedViewModel())
                 .tabItem {
                     Label("Feed", systemImage: "list.dash")
                 }
             
-            FavouritesFeedView()
+            FavouritesFeedView(viewModel: FavouritesFeedViewModel())
                 .tabItem {
                     Label("Favourites", systemImage: "star")
                 }
