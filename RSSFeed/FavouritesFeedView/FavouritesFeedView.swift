@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct FavouritesFeedView: View {
+    var body: some View {
+        Text("Favourites")
+    }
+}
