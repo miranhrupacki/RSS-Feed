@@ -16,6 +16,7 @@ struct AddNewFeedView: View {
             VStack(spacing: 10) {
                 HStack(spacing: 20) {
                     Text("Add new feed")
+                        .font(.largeTitle)
                     
                     Spacer()
                     
