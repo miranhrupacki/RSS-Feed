@@ -41,8 +41,10 @@ private extension RSSFeedView {
                             if let url = url {
                                 viewModel.startFeedKit(with: url)
                                 viewModel.isSheetPresented = false
+                                viewModel.rssFeedUrl = ""
                             } else {
                                 viewModel.isSheetPresented = false
+                                viewModel.rssFeedUrl = ""
                             }
                         }
                     )
@@ -51,7 +53,7 @@ private extension RSSFeedView {
     }
     
     var listView: some View {
-        List($viewModel.feedProviders, id: \.self) { $item in
+        List($viewModel.feedProviders, id: \.id) { $item in
             ForEach($viewModel.feedProviders) { $provider in
                 NavigationLink {
                     RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
