@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RSSFeedView: View {
+    @ObservedObject var viewModel: RSSFeedViewModel
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -17,8 +19,4 @@ struct RSSFeedView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    RSSFeedView()
 }
