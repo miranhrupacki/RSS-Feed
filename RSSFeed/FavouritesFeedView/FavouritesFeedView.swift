@@ -31,7 +31,7 @@ private extension FavouritesFeedView {
     }
     
     var listView: some View {
-        List($viewModel.favouriteFeedProviders, id: \.self) { $item in
+        List($viewModel.favouriteFeedProviders, id: \.id) { $item in
             ForEach($viewModel.favouriteFeedProviders) { $provider in
                 NavigationLink {
                     RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
