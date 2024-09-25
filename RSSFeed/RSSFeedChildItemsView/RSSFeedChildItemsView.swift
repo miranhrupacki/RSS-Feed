@@ -14,7 +14,7 @@ struct RSSFeedChildItemsView: View {
     var body: some View {
         List(viewModel.items, id: \.self) { item in
             NavigationLink {
-                Color.red
+                WebView(urlToLoad: item.link ?? "")
             } label: {
                 RSSListRowView(title: item.title ?? "-",
                                description: item.description ?? "-",
