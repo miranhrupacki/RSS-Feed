@@ -16,9 +16,14 @@ struct RSSFeedChildItemsView: View {
             NavigationLink {
                 WebView(urlToLoad: item.link ?? "")
             } label: {
-                RSSListRowView(title: item.title ?? "-",
-                               description: item.description ?? "-",
-                               imageUrl: item.imageUrl ?? "-")
+                RSSListRowView(
+                    title: item.title ?? "-",
+                    description: item.description ?? "-",
+                    imageUrl: item.imageUrl ?? "-",
+                    isFavourite: false,
+                    isFavouriteButtonHidden: true,
+                    favouriteButtonTapped: { _ in }
+                )
             }
         }
         .navigationTitle(viewModel.feedTitle)
