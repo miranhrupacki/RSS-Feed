@@ -28,6 +28,7 @@
 		8A365D182CA44AF800E19EDD /* RSSFeedChildItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D172CA44AF800E19EDD /* RSSFeedChildItemsView.swift */; };
 		8A365D1A2CA44B5200E19EDD /* RSSListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D192CA44B5200E19EDD /* RSSListRowView.swift */; };
 		8A365D1C2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */; };
+		8A365D1F2CA44DEA00E19EDD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8A365D1E2CA44DEA00E19EDD /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A365D1F2CA44DEA00E19EDD /* Kingfisher in Frameworks */,
 				8A365D152CA4458100E19EDD /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +268,7 @@
 			name = RSSFeed;
 			packageProductDependencies = (
 				8A365D142CA4458100E19EDD /* FeedKit */,
+				8A365D1E2CA44DEA00E19EDD /* Kingfisher */,
 			);
 			productName = RSSFeed;
 			productReference = 8A365CC92CA4402000E19EDD /* RSSFeed.app */;
@@ -341,6 +344,7 @@
 			mainGroup = 8A365CC02CA4402000E19EDD;
 			packageReferences = (
 				8A365D132CA4458100E19EDD /* XCRemoteSwiftPackageReference "FeedKit" */,
+				8A365D1D2CA44DEA00E19EDD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8A365CCA2CA4402000E19EDD /* Products */;
 			projectDirPath = "";
@@ -738,6 +742,14 @@
 				minimumVersion = 9.1.2;
 			};
 		};
+		8A365D1D2CA44DEA00E19EDD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -745,6 +757,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8A365D132CA4458100E19EDD /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
+		};
+		8A365D1E2CA44DEA00E19EDD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A365D1D2CA44DEA00E19EDD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
