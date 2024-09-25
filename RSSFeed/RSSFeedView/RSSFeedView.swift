@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RSSFeedView.swift
 //  RSSFeed
 //
 //  Created by Miran Hrupački on 25.09.2024..
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RSSFeedView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RSSFeedView()
 }
