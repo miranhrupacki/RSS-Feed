@@ -8,9 +8,13 @@
 import Foundation
 
 class FavouritesFeedViewModel: ObservableObject {
+    @Published var favouriteFeedProviders: [RSSFeedReponse]
+    
     var feedController: FeedController
 
     init(feedController: FeedController) {
         self.feedController = feedController
+        
+        favouriteFeedProviders = feedController.feedProviders.value
     }
 }
