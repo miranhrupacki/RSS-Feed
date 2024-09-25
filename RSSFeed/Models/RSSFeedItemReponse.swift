@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct RSSFeedItemReponse: Decodable, Hashable {
+    var title: String?
+    var description: String?
+    var pubDate: Date?
+    var imageUrl: String?
+    var link: String?
+}
