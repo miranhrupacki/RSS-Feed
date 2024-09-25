@@ -29,6 +29,7 @@
 		8A365D1A2CA44B5200E19EDD /* RSSListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D192CA44B5200E19EDD /* RSSListRowView.swift */; };
 		8A365D1C2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */; };
 		8A365D1F2CA44DEA00E19EDD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8A365D1E2CA44DEA00E19EDD /* Kingfisher */; };
+		8A365D212CA44E2800E19EDD /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D202CA44E2800E19EDD /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		8A365D172CA44AF800E19EDD /* RSSFeedChildItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedChildItemsView.swift; sourceTree = "<group>"; };
 		8A365D192CA44B5200E19EDD /* RSSListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSListRowView.swift; sourceTree = "<group>"; };
 		8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedChildItemsViewModel.swift; sourceTree = "<group>"; };
+		8A365D202CA44E2800E19EDD /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		8A365CFE2CA440DA00E19EDD /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				8A365D202CA44E2800E19EDD /* WebView.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A365D022CA4416F00E19EDD /* FavouritesFeedViewModel.swift in Sources */,
+				8A365D212CA44E2800E19EDD /* WebView.swift in Sources */,
 				8A365CCF2CA4402000E19EDD /* RSSFeedView.swift in Sources */,
 				8A365D082CA4426000E19EDD /* RSSFeedController.swift in Sources */,
 				8A365D0D2CA4440900E19EDD /* RSSFeedReponse.swift in Sources */,
