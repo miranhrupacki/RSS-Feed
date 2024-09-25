@@ -9,8 +9,38 @@ import SwiftUI
 
 struct RSSFeedView: View {
     @ObservedObject var viewModel: RSSFeedViewModel
-
+    
     var body: some View {
+        contentView
+            .alert(isPresented: $viewModel.showAlert, error: viewModel.errorMessage) { _ in
+                Button("OK") {
+                    viewModel.showAlert = false
+                }
+            } message: { error in
+                Text(error.recoverySuggestion ?? "Try again later.")
+            }
+    }
+}
+
+// MARK: - Setup UI
+private extension RSSFeedView {
+    var contentView: some View {
+        NavigationStack {
+            listView
+                .navigationDestination(for: RSSFeedChildItemsViewModel.self, destination: RSSFeedChildItemsView.init)
+                .navigationTitle("Your RSS Feed")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        rightToolbarButton
+                    }
+                }
+                .sheet(isPresented: $viewModel.isSheetPresented) {
+                    Color.red
+                }
+        }
+    }
+    
+    var listView: some View {
         List($viewModel.feedProviders, id: \.self) { $item in
             ForEach($viewModel.feedProviders) { $provider in
                 NavigationLink {
@@ -21,9 +51,18 @@ struct RSSFeedView: View {
                                    imageUrl: item.imageUrl ?? "-")
                 }
             }
+            .onDelete(perform: viewModel.delete)
         }
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    var rightToolbarButton: some View {
+        Button(action: {
+            viewModel.isSheetPresented = true
+        }) {
+            Image(systemName: "plus")
+        }
     }
 }
