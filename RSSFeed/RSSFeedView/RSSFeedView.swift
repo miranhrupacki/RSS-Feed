@@ -35,14 +35,17 @@ private extension RSSFeedView {
                     }
                 }
                 .sheet(isPresented: $viewModel.isSheetPresented) {
-                    AddNewFeedView(rssFeedUrl: $viewModel.rssFeedUrl, doneButtonTapped: { url in
-                        if let url = url {
-                            viewModel.startFeedKit(with: url)
-                            viewModel.isSheetPresented = false
-                        } else {
-                            viewModel.isSheetPresented = false
+                    AddNewFeedView(
+                        rssFeedUrl: $viewModel.rssFeedUrl,
+                        doneButtonTapped: { url in
+                            if let url = url {
+                                viewModel.startFeedKit(with: url)
+                                viewModel.isSheetPresented = false
+                            } else {
+                                viewModel.isSheetPresented = false
+                            }
                         }
-                    })
+                    )
                 }
         }
     }
@@ -53,9 +56,17 @@ private extension RSSFeedView {
                 NavigationLink {
                     RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
                 } label: {
-                    RSSListRowView(title: item.title ?? "-",
-                                   description: item.description ?? "-",
-                                   imageUrl: item.imageUrl ?? "-")
+                    RSSListRowView(
+                        title: item.title ?? "-",
+                        description: item.description ?? "-",
+                        imageUrl: item.imageUrl ?? "-",
+                        isFavourite: item.isFavourite,
+                        isFavouriteButtonHidden: false,
+                        favouriteButtonTapped: { shouldAddToFavourites in
+                            item.isFavourite = shouldAddToFavourites
+                            viewModel.feedController.addOrUpdateFeed(item)
+                        }
+                    )
                 }
             }
             .onDelete(perform: viewModel.delete)
