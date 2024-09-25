@@ -24,6 +24,7 @@
 		8A365D0D2CA4440900E19EDD /* RSSFeedReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D0C2CA4440900E19EDD /* RSSFeedReponse.swift */; };
 		8A365D0F2CA4441E00E19EDD /* RSSFeedItemReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D0E2CA4441E00E19EDD /* RSSFeedItemReponse.swift */; };
 		8A365D122CA4449C00E19EDD /* FeedParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D112CA4449C00E19EDD /* FeedParserService.swift */; };
+		8A365D152CA4458100E19EDD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A365D142CA4458100E19EDD /* FeedKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A365D152CA4458100E19EDD /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +247,9 @@
 			dependencies = (
 			);
 			name = RSSFeed;
+			packageProductDependencies = (
+				8A365D142CA4458100E19EDD /* FeedKit */,
+			);
 			productName = RSSFeed;
 			productReference = 8A365CC92CA4402000E19EDD /* RSSFeed.app */;
 			productType = "com.apple.product-type.application";
@@ -317,6 +322,9 @@
 				Base,
 			);
 			mainGroup = 8A365CC02CA4402000E19EDD;
+			packageReferences = (
+				8A365D132CA4458100E19EDD /* XCRemoteSwiftPackageReference "FeedKit" */,
+			);
 			productRefGroup = 8A365CCA2CA4402000E19EDD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -700,6 +708,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A365D132CA4458100E19EDD /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A365D142CA4458100E19EDD /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A365D132CA4458100E19EDD /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A365CC12CA4402000E19EDD /* Project object */;
 }
