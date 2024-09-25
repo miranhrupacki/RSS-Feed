@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct FavouritesFeedView: View {
+    @ObservedObject var viewModel: FavouritesFeedViewModel
+
     var body: some View {
         Text("Favourites")
     }
