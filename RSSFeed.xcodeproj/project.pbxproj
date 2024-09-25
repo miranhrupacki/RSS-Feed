@@ -25,6 +25,9 @@
 		8A365D0F2CA4441E00E19EDD /* RSSFeedItemReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D0E2CA4441E00E19EDD /* RSSFeedItemReponse.swift */; };
 		8A365D122CA4449C00E19EDD /* FeedParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D112CA4449C00E19EDD /* FeedParserService.swift */; };
 		8A365D152CA4458100E19EDD /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A365D142CA4458100E19EDD /* FeedKit */; };
+		8A365D182CA44AF800E19EDD /* RSSFeedChildItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D172CA44AF800E19EDD /* RSSFeedChildItemsView.swift */; };
+		8A365D1A2CA44B5200E19EDD /* RSSListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D192CA44B5200E19EDD /* RSSListRowView.swift */; };
+		8A365D1C2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		8A365D0C2CA4440900E19EDD /* RSSFeedReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedReponse.swift; sourceTree = "<group>"; };
 		8A365D0E2CA4441E00E19EDD /* RSSFeedItemReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedItemReponse.swift; sourceTree = "<group>"; };
 		8A365D112CA4449C00E19EDD /* FeedParserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParserService.swift; sourceTree = "<group>"; };
+		8A365D172CA44AF800E19EDD /* RSSFeedChildItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedChildItemsView.swift; sourceTree = "<group>"; };
+		8A365D192CA44B5200E19EDD /* RSSListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSListRowView.swift; sourceTree = "<group>"; };
+		8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedChildItemsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 		8A365CCB2CA4402000E19EDD /* RSSFeed */ = {
 			isa = PBXGroup;
 			children = (
+				8A365D162CA44ACA00E19EDD /* RSSFeedChildItemsView */,
 				8A365D102CA4448A00E19EDD /* Services */,
 				8A365D0B2CA443E800E19EDD /* Models */,
 				8A365D062CA4425300E19EDD /* Factory */,
@@ -162,6 +169,7 @@
 			children = (
 				8A365CCE2CA4402000E19EDD /* RSSFeedView.swift */,
 				8A365D032CA4417C00E19EDD /* RSSFeedViewModel.swift */,
+				8A365D192CA44B5200E19EDD /* RSSListRowView.swift */,
 			);
 			path = RSSFeedView;
 			sourceTree = "<group>";
@@ -229,6 +237,15 @@
 				8A365D112CA4449C00E19EDD /* FeedParserService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8A365D162CA44ACA00E19EDD /* RSSFeedChildItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				8A365D172CA44AF800E19EDD /* RSSFeedChildItemsView.swift */,
+				8A365D1B2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift */,
+			);
+			path = RSSFeedChildItemsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,11 +389,14 @@
 				8A365D082CA4426000E19EDD /* RSSFeedController.swift in Sources */,
 				8A365D0D2CA4440900E19EDD /* RSSFeedReponse.swift in Sources */,
 				8A365D122CA4449C00E19EDD /* FeedParserService.swift in Sources */,
+				8A365D1C2CA44C1E00E19EDD /* RSSFeedChildItemsViewModel.swift in Sources */,
 				8A365D0F2CA4441E00E19EDD /* RSSFeedItemReponse.swift in Sources */,
 				8A365D042CA4417C00E19EDD /* RSSFeedViewModel.swift in Sources */,
 				8A365CFB2CA4408600E19EDD /* TabBarView.swift in Sources */,
 				8A365CFD2CA440AA00E19EDD /* FavouritesFeedView.swift in Sources */,
+				8A365D1A2CA44B5200E19EDD /* RSSListRowView.swift in Sources */,
 				8A365D0A2CA4427D00E19EDD /* ViewModelFactory.swift in Sources */,
+				8A365D182CA44AF800E19EDD /* RSSFeedChildItemsView.swift in Sources */,
 				8A365CCD2CA4402000E19EDD /* RSSFeedApp.swift in Sources */,
 				8A365D002CA440F900E19EDD /* AddNewFeedView.swift in Sources */,
 			);
