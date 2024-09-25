@@ -8,5 +8,9 @@
 import Foundation
 
 class RSSFeedViewModel: ObservableObject {
-    
+    var feedController: FeedController
+
+    init(feedController: FeedController) {
+        self.feedController = feedController
+    }
 }
