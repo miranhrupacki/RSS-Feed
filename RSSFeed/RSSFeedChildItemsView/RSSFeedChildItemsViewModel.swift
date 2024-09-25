@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct RSSFeedChildItemsViewModel: Hashable {
+    var feedTitle: String
+    var items: [RSSFeedItemReponse]
+}
