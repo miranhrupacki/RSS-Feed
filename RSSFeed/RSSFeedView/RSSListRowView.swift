@@ -13,14 +13,19 @@ struct RSSListRowView: View {
     var title: String
     var description: String
     var imageUrl: String
-
+    @State var isFavourite: Bool
+    var isFavouriteButtonHidden: Bool
+    var favouriteButtonTapped: ((Bool) -> Void)
+    
     var body: some View {
         HStack(spacing: 20) {
             Button {
-                print("button tapped")
+                isFavourite.toggle()
+                favouriteButtonTapped(isFavourite)
             } label: {
-                Image(systemName: "star.fill")
+                Image(systemName: isFavourite ? "star.fill" : "star")
             }
+            .isHidden(isFavouriteButtonHidden, remove: isFavouriteButtonHidden)
             .buttonStyle(PlainButtonStyle())
             
             GeometryReader { geometry in
@@ -35,7 +40,7 @@ struct RSSListRowView: View {
             }
             .frame(height: 50)
             .frame(maxWidth: 50)
-            
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.subheadline)
