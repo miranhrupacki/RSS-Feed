@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Combine
 
 class FeedController {
-    
+    var feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
 }
