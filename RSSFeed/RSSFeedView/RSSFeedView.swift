@@ -35,7 +35,14 @@ private extension RSSFeedView {
                     }
                 }
                 .sheet(isPresented: $viewModel.isSheetPresented) {
-                    Color.red
+                    AddNewFeedView(rssFeedUrl: $viewModel.rssFeedUrl, doneButtonTapped: { url in
+                        if let url = url {
+                            viewModel.startFeedKit(with: url)
+                            viewModel.isSheetPresented = false
+                        } else {
+                            viewModel.isSheetPresented = false
+                        }
+                    })
                 }
         }
     }
