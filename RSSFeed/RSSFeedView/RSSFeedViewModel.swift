@@ -56,10 +56,14 @@ extension RSSFeedViewModel {
 
 // MARK: - Update current data
 extension RSSFeedViewModel {
+    func favouriteSelected(_ feed: RSSFeedReponse) {
+        feedController.addOrUpdateFeed(feed)
+    }
+    
     func delete(at offsets: IndexSet) {
         feedController.delete(at: offsets)
     }
-
+    
     func addOrUpdateFeed(_ feed: RSSFeedReponse) {
         feedController.addOrUpdateFeed(feed)
     }
