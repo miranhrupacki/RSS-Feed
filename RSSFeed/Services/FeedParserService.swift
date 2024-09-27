@@ -21,7 +21,15 @@ class FeedParserService {
                 case .success(let feed):
                     switch feed {
                     case let .atom(feed):
-                        print("atom feed", feed)
+                        let feedChildItems = self.atomDataMapper(feedItems: feed.entries ?? [])
+                        let mainFeedModel = RSSFeedReponse(
+                            title: feed.title,
+                            description: feed.subtitle?.value,
+                            item: feedChildItems,
+                            imageUrl: feed.logo
+                        )
+                        
+                        completion(.success(mainFeedModel))
                     case let .rss(feed):
                         let feedChildItems = self.rssDataMapper(feedItems: feed.items ?? [])
                         let mainFeedModel = RSSFeedReponse(
@@ -37,7 +45,8 @@ class FeedParserService {
                         let mainFeedModel = RSSFeedReponse(
                             title: feed.title,
                             description: feed.description,
-                            item: feedChildItems
+                            item: feedChildItems, 
+                            imageUrl: feed.icon
                         )
                         
                         completion(.success(mainFeedModel))
@@ -52,6 +61,12 @@ class FeedParserService {
 
 // MARK: - Data mapping
 extension FeedParserService {
+    func atomDataMapper(feedItems: [AtomFeedEntry]) -> [RSSFeedItemReponse] {
+        return feedItems.compactMap { singleItem in
+            RSSFeedItemReponse(title: singleItem.title, description: singleItem.summary?.value, pubDate: singleItem.updated, link: singleItem.links?.first?.attributes?.href)
+        }
+    }
+    
     func rssDataMapper(feedItems: [RSSFeedItem]) -> [RSSFeedItemReponse] {
         return feedItems.compactMap { singleItem in
             RSSFeedItemReponse(title: singleItem.title, description: singleItem.description, pubDate: singleItem.pubDate, link: singleItem.link)
