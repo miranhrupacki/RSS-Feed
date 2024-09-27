@@ -22,7 +22,7 @@ struct RSSFeedChildItemsView: View {
                     imageUrl: item.imageUrl ?? "-",
                     isFavourite: false,
                     isFavouriteButtonHidden: true,
-                    favouriteButtonTapped: { _ in }
+                    favouriteButtonTapped: { }
                 )
             }
         }
