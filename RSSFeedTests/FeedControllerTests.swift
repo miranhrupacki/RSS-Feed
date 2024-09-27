@@ -1,5 +1,5 @@
 //
-//  RSSFeedTests.swift
+//  FeedControllerTests.swift
 //  RSSFeedTests
 //
 //  Created by Miran Hrupački on 25.09.2024..
@@ -8,7 +8,7 @@
 import XCTest
 @testable import RSSFeed
 
-final class RSSFeedTests: XCTestCase {
+final class FeedControllerTests: XCTestCase {
     var feedController: FeedController!
     
     override func setUp() {
@@ -113,35 +113,5 @@ final class RSSFeedTests: XCTestCase {
         feedController.delete(feed)
         
         XCTAssertEqual(feedController.feedProviders.value, [])
-    }
-}
-
-import Combine
-import FeedKit
-
-class FeedControllerMock: FeedControllerProtocol {
-    var feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
-    var errorMessage: CurrentValueSubject<ParserError?, Never> = .init(nil)
-    var showAlert: CurrentValueSubject<Bool, Never> = .init(false)
-    var feedService = FeedParserService()
-    
-    func startFeedKit(with url: String) {
-        
-    }
-    
-    func favouriteSelected(_ feed: RSSFeedReponse) {
-        
-    }
-    
-    func addOrUpdateFeed(_ feed: RSSFeedReponse) {
-        
-    }
-    
-    func delete(at offsets: IndexSet) {
-        
-    }
-    
-    func delete(_ feed: RSSFeedReponse) {
-        
     }
 }
