@@ -40,11 +40,9 @@ private extension RSSFeedView {
                         doneButtonTapped: { url in
                             if let url = url {
                                 viewModel.startFeedKit(with: url)
-                                viewModel.isSheetPresented = false
-                                viewModel.rssFeedUrl = ""
+                                viewModel.resetValues()
                             } else {
-                                viewModel.isSheetPresented = false
-                                viewModel.rssFeedUrl = ""
+                                viewModel.resetValues()
                             }
                         }
                     )
