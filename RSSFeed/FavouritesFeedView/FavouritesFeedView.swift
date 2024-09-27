@@ -31,20 +31,21 @@ private extension FavouritesFeedView {
     }
     
     var listView: some View {
-        List($viewModel.favouriteFeedProviders, id: \.id) { $item in
-            ForEach($viewModel.favouriteFeedProviders) { $provider in
+        List {
+            ForEach(viewModel.favouriteFeedProviders) { provider in
                 NavigationLink {
-                    RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
+                    RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: provider.title ?? "-", items: provider.item))
                 } label: {
-                    RSSListRowView(title: item.title ?? "-",
-                                              description: item.description ?? "-",
-                                              imageUrl: item.imageUrl ?? "-",
-                                              isFavourite: item.isFavourite,
-                                              isFavouriteButtonHidden: false,
-                                              favouriteButtonTapped: { shouldAddToFavourites in
-                        item.isFavourite = shouldAddToFavourites
-                        viewModel.feedController.addOrUpdateFeed(item)
-                    })
+                    RSSListRowView(
+                        title: provider.title ?? "-",
+                        description: provider.description ?? "-",
+                        imageUrl: provider.imageUrl ?? "-",
+                        isFavourite: provider.isFavourite,
+                        isFavouriteButtonHidden: false,
+                        favouriteButtonTapped: {
+                            viewModel.favouriteSelected(provider)
+                        }
+                    )
                 }
             }
             .onDelete(perform: viewModel.delete)
