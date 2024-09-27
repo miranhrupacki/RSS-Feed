@@ -53,20 +53,19 @@ private extension RSSFeedView {
     }
     
     var listView: some View {
-        List($viewModel.feedProviders, id: \.id) { $item in
-            ForEach($viewModel.feedProviders) { $provider in
+        List {
+            ForEach(viewModel.feedProviders) { provider in
                 NavigationLink {
-                    RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: item.title ?? "-", items: item.item))
+                    RSSFeedChildItemsView(viewModel: RSSFeedChildItemsViewModel(feedTitle: provider.title ?? "-", items: provider.item))
                 } label: {
                     RSSListRowView(
-                        title: item.title ?? "-",
-                        description: item.description ?? "-",
-                        imageUrl: item.imageUrl ?? "-",
-                        isFavourite: item.isFavourite,
+                        title: provider.title ?? "-",
+                        description: provider.description ?? "-",
+                        imageUrl: provider.imageUrl ?? "-",
+                        isFavourite: provider.isFavourite,
                         isFavouriteButtonHidden: false,
-                        favouriteButtonTapped: { shouldAddToFavourites in
-                            item.isFavourite = shouldAddToFavourites
-                            viewModel.feedController.addOrUpdateFeed(item)
+                        favouriteButtonTapped: {
+                            viewModel.favouriteSelected(provider)
                         }
                     )
                 }
