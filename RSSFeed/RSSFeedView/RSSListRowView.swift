@@ -10,18 +10,17 @@ import SwiftUI
 import Kingfisher
 
 struct RSSListRowView: View {
-    var title: String
-    var description: String
-    var imageUrl: String
-    @State var isFavourite: Bool
-    var isFavouriteButtonHidden: Bool
-    var favouriteButtonTapped: ((Bool) -> Void)
+    let title: String
+    let description: String
+    let imageUrl: String
+    let isFavourite: Bool
+    let isFavouriteButtonHidden: Bool
+    let favouriteButtonTapped: (() -> Void)
     
     var body: some View {
         HStack(spacing: 20) {
             Button {
-                isFavourite.toggle()
-                favouriteButtonTapped(isFavourite)
+                favouriteButtonTapped()
             } label: {
                 Image(systemName: isFavourite ? "star.fill" : "star")
             }
