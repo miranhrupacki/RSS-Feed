@@ -9,12 +9,11 @@ import Foundation
 import Combine
 import FeedKit
 
-class FeedController: ObservableObject {
-    let feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
-    let errorMessage: CurrentValueSubject<ParserError?, Never> = .init(nil)
-    let showAlert: CurrentValueSubject<Bool, Never> = .init(false)
-    
-    let feedService = FeedParserService()
+class FeedController: ObservableObject, FeedControllerProtocol {
+    var feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
+    var errorMessage: CurrentValueSubject<ParserError?, Never> = .init(nil)
+    var showAlert: CurrentValueSubject<Bool, Never> = .init(false)
+    var feedService = FeedParserService()
 }
 
 // MARK: - Data parser
