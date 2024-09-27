@@ -10,10 +10,10 @@ import Combine
 
 class FavouritesFeedViewModel: ObservableObject {
     @Published var favouriteFeedProviders: [RSSFeedReponse]
-    var feedController: FeedController
+    var feedController: FeedControllerProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init(feedController: FeedController) {
+    init(feedController: FeedControllerProtocol) {
         favouriteFeedProviders = feedController.feedProviders.value
         self.feedController = feedController
         
@@ -27,7 +27,7 @@ class FavouritesFeedViewModel: ObservableObject {
 // MARK: - Update current data
 extension FavouritesFeedViewModel {
     func favouriteSelected(_ feed: RSSFeedReponse) {
-        feedController.addOrUpdateFeed(feed)
+        feedController.favouriteSelected(feed)
     }
     
     func delete(at offsets: IndexSet) {
