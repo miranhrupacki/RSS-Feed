@@ -26,10 +26,14 @@ class FavouritesFeedViewModel: ObservableObject {
 
 // MARK: - Update current data
 extension FavouritesFeedViewModel {
-   func delete(at offsets: IndexSet) {
-       feedController.delete(at: offsets)
-   }
-
+    func favouriteSelected(_ feed: RSSFeedReponse) {
+        feedController.addOrUpdateFeed(feed)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        feedController.delete(at: offsets)
+    }
+    
     func addOrUpdateFeed(_ feed: RSSFeedReponse) {
         feedController.addOrUpdateFeed(feed)
     }
