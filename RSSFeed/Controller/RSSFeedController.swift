@@ -9,10 +9,10 @@ import Foundation
 import Combine
 import FeedKit
 
-class FeedController {
-    var feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
-    var errorMessage: CurrentValueSubject<ParserError?, Never> = .init(nil)
-    var showAlert: CurrentValueSubject<Bool, Never> = .init(false)
+class FeedController: ObservableObject {
+    let feedProviders: CurrentValueSubject<[RSSFeedReponse], Never> = .init([])
+    let errorMessage: CurrentValueSubject<ParserError?, Never> = .init(nil)
+    let showAlert: CurrentValueSubject<Bool, Never> = .init(false)
     
     let feedService = FeedParserService()
 }
@@ -34,6 +34,12 @@ extension FeedController {
 
 // MARK: - Update current data
 extension FeedController {
+    func favouriteSelected(_ feed: RSSFeedReponse) {
+        let newFeed = RSSFeedReponse(id: feed.id, title: feed.title, description: feed.description, item: feed.item, imageUrl: feed.imageUrl, isFavourite: !feed.isFavourite)
+        
+        addOrUpdateFeed(newFeed)
+    }
+    
     func addOrUpdateFeed(_ feed: RSSFeedReponse) {
         if let index = feedProviders.value.firstIndex(where: { $0.id == feed.id }) {
             feedProviders.value[index] = feed
