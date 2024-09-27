@@ -8,10 +8,10 @@
 import Foundation
 
 struct RSSFeedReponse: Decodable, Hashable, Identifiable {
-    let id = UUID()
-    var title: String?
-    var description: String?
-    var item: [RSSFeedItemReponse]
-    var imageUrl: String?
+    var id = UUID()
+    let title: String?
+    let description: String?
+    let item: [RSSFeedItemReponse]
+    let imageUrl: String?
     var isFavourite: Bool = false
 }
