@@ -16,10 +16,10 @@ class RSSFeedViewModel: ObservableObject {
     @Published var errorMessage: ParserError?
     @Published var showAlert: Bool
     
-    var feedController: FeedController
+    var feedController: FeedControllerProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init(feedController: FeedController) {
+    init(feedController: FeedControllerProtocol) {
         self.feedController = feedController
         
         feedProviders = feedController.feedProviders.value
@@ -47,6 +47,14 @@ private extension RSSFeedViewModel {
     }
 }
 
+// MARK: - Data reset on actions
+extension RSSFeedViewModel {
+    func resetValues() {
+        isSheetPresented = false
+        rssFeedUrl = ""
+    }
+}
+
 // MARK: - Data parser
 extension RSSFeedViewModel {
     func startFeedKit(with url: String) {
@@ -57,7 +65,7 @@ extension RSSFeedViewModel {
 // MARK: - Update current data
 extension RSSFeedViewModel {
     func favouriteSelected(_ feed: RSSFeedReponse) {
-        feedController.addOrUpdateFeed(feed)
+        feedController.favouriteSelected(feed)
     }
     
     func delete(at offsets: IndexSet) {
